@@ -1,99 +1,160 @@
-# Smart Activity Suggestor — Starter
+# ⛅ Weather Activity Suggestor – Full Stack MERN App
 
-A minimal full‑stack starter that satisfies the assignment requirements:
-- **Mocked weather module** (no external API)
-- **Decision logic** using DB rules
-- **GET /api/weather/:location** endpoint
-- Simple **frontend** to test the flow
+A smart MERN-powered web application that suggests **perfect activities based on weather, mood, and categories**.
+Built using **React**, **Node.js**, **Express**, and **MongoDB**, with real-time weather data and dynamic UI.
 
-## 1) Prerequisites
-- Node.js 18+
-- MongoDB running locally (default: `mongodb://localhost:27017`)
+---
 
-## 2) Setup
+## 🏷️ Badges
+
+![React](https://img.shields.io/badge/Frontend-React-61dafb?logo=react\&logoColor=white)
+![NodeJS](https://img.shields.io/badge/Backend-Node.js-3c873a?logo=node.js\&logoColor=white)
+![Express](https://img.shields.io/badge/API-Express-black?logo=express)
+![MongoDB](https://img.shields.io/badge/Database-MongoDB-4ea94b?logo=mongodb\&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-blue)
+
+---
+
+## 🚀 Tech Stack
+
+### **Frontend**
+
+* React.js
+* JavaScript (ES6+)
+* CSS
+* Vite
+
+### **Backend**
+
+* Node.js
+* Express.js
+* MongoDB
+* Mongoose
+* Nodemon (Dev)
+
+---
+
+## 📂 Project Structure
+
+```
+/client   -> React Frontend  
+/server   -> Node + Express Backend  
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+### **1️⃣ Clone the repository**
+
 ```bash
-cd backend
-cp .env.example .env            # edit MONGO_URI if needed
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+cd YOUR-REPO-NAME
+```
+
+---
+
+## 🌐 Frontend Setup (React)
+
+```bash
+cd client
 npm install
-npm run seed                    # inserts sample rules
-npm run dev                     # start server (serves frontend on same port)
+npm run dev
 ```
 
-Now open: **http://localhost:5000**
+---
 
-## 3) API
-### GET `/api/weather/:location`
-Response:
-```json
-{
-  "weather": { "location": "London", "temperature": 12, "windSpeed": 8, "humidity": 80, "generalCondition": "Rainy" },
-  "suggestion": "Visit a cozy café and read a book ☕📚",
-  "matchedRuleId": "66f..."
-}
+## 🖥 Backend Setup (Node)
+
+Create a `.env` file inside `/server`:
+
+```
+MONGO_URI=mongodb://127.0.0.1:27017/activity_suggestor
+PORT=5000
+CORS_ORIGIN=http://localhost:5173
+WEATHER_API_KEY=YOUR_OPENWEATHER_API_KEY
 ```
 
-### Rules (optional CRUD)
-- `POST /api/rules` — create a rule `{ condition, minTemp, maxTemp, activitySuggestion }`
-- `GET /api/rules` — list rules
-- `PUT /api/rules/:id` — update a rule
-- `DELETE /api/rules/:id` — delete
+Then run:
 
-## 4) Frontend
-This repo serves the `/frontend` folder statically from the Express app.
-Use the input to try **London**, **Mumbai**, **Delhi**, **Paris** out of the box.
-
-## 5) Project structure
-```
-smart-activity-suggestor/
-├─ backend/
-│  ├─ src/
-│  │  ├─ data/mockWeatherData.js
-│  │  ├─ models/ActivityRule.js
-│  │  ├─ routes/rules.js
-│  │  ├─ routes/weather.js
-│  │  └─ index.js
-│  ├─ .env.example
-│  └─ package.json
-├─ frontend/
-│  ├─ index.html
-│  ├─ styles.css
-│  └─ app.js
-└─ .gitignore
-```
-
-## 6) Next steps
-- Add unit tests (Jest or Vitest) for the decision function.
-- Add form UI to create rules from the frontend.
-- Consider Dockerizing Mongo + app for easy run.
-```
-
-## 4) Frontend (React + Vite + Tailwind)
-In a second terminal:
 ```bash
-cd frontend
+cd server
 npm install
-npm run dev       # http://localhost:5173 (proxy to backend on /api)
-```
-For production build (served by Express):
-```bash
-npm run build
-# restart backend; it will serve /frontend/dist
+npm run dev
 ```
 
-App structure (frontend):
+---
+
+## 🔐 Environment Variables
+
+| Variable          | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| `MONGO_URI`       | MongoDB local/Atlas URL                           |
+| `PORT`            | Server port (default: 5000)                       |
+| `CORS_ORIGIN`     | Allowed frontend URL                              |
+| `WEATHER_API_KEY` | OpenWeather API key for weather-based suggestions |
+
+---
+
+## ⭐ Features
+
+* 🌤 Get activity suggestions based on **live weather**
+* 👍 Suggest random or category-wise activities
+* 🎨 Clean and responsive UI built with React
+* 🔄 Real-time API communication using Axios
+* 🗄 MongoDB storage for activities
+* ⚡ Fast backend with Express.js
+* 🔐 Secure environment variable usage
+
+---
+
+## 📸 Screenshots
+
+*Add your UI images later here.*
+
 ```
-frontend/
-├─ index.html
-├─ vite.config.js
-├─ tailwind.config.js
-├─ postcss.config.js
-├─ src/
-│  ├─ main.jsx
-│  ├─ App.jsx
-│  ├─ api.js
-│  └─ components/
-│     ├─ LocationForm.jsx
-│     ├─ WeatherCard.jsx
-│     └─ SuggestionCard.jsx
-└─ package.json
+/screenshots/homepage.png
+/screenshots/activity-suggestion.png
 ```
+
+---
+
+## 🛠 API Endpoints (Backend)
+
+| Method | Endpoint                 | Description                            |
+| ------ | ------------------------ | -------------------------------------- |
+| GET    | `/api/activities`        | Get all activities                     |
+| POST   | `/api/activities`        | Add a new activity                     |
+| GET    | `/api/activities/random` | Get a random activity                  |
+| GET    | `/api/weather/:city`     | Get weather data for the selected city |
+
+---
+
+## 🌍 Deployment
+
+You can deploy this project using:
+
+* **Frontend** → Vercel / Netlify
+* **Backend** → Render / Railway / Cyclic
+* **Database** → MongoDB Atlas
+
+Deployment guide will depend on the platform you choose.
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome. For major changes, please open an issue first.
+
+---
+
+## 📜 License
+
+This project is open-source and available under the **MIT License**.
+
+---
+
+## 👨‍💻 Author
+
+**Bishal Bhandari**
+Frontend Developer | React.js | JavaScript
