@@ -108,15 +108,6 @@ npm run dev
 
 ---
 
-## 📸 Screenshots
-
-*Add your UI images later here.*
-
-```
-<img width="1778" height="927" alt="image" src="https://github.com/user-attachments/assets/548f7fb3-2484-4977-ad01-d92a6325ce48" />
-
-```
-
 ---
 
 ## 🛠 API Endpoints (Backend)
